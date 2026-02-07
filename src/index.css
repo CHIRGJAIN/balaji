@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Balaji Sweets - Premium Indian Sweets Design System */
+
+@layer base {
+  :root {
+    /* Warm Ivory Background */
+    --background: 40 33% 97%;
+    --foreground: 20 25% 15%;
+
+    /* Card surfaces */
+    --card: 40 30% 99%;
+    --card-foreground: 20 25% 15%;
+
+    --popover: 40 30% 99%;
+    --popover-foreground: 20 25% 15%;
+
+    /* Saffron Primary */
+    --primary: 28 89% 52%;
+    --primary-foreground: 40 30% 99%;
+
+    /* Maroon Secondary */
+    --secondary: 350 65% 35%;
+    --secondary-foreground: 40 30% 99%;
+
+    /* Muted cream */
+    --muted: 35 25% 92%;
+    --muted-foreground: 20 15% 45%;
+
+    /* Gold Accent */
+    --accent: 43 74% 49%;
+    --accent-foreground: 20 25% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 30% 99%;
+
+    --border: 35 20% 88%;
+    --input: 35 20% 88%;
+    --ring: 28 89% 52%;
+
+    --radius: 0.75rem;
+
+    /* Custom brand colors */
+    --saffron: 28 89% 52%;
+    --saffron-light: 32 85% 65%;
+    --saffron-dark: 24 85% 42%;
+    --maroon: 350 65% 35%;
+    --maroon-light: 350 55% 45%;
+    --maroon-dark: 350 70% 25%;
+    --gold: 43 74% 49%;
+    --gold-light: 45 80% 65%;
+    --gold-dark: 40 70% 40%;
+    --ivory: 40 33% 97%;
+    --cream: 35 25% 92%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(43 74% 49%), hsl(45 80% 65%));
+    --gradient-saffron: linear-gradient(135deg, hsl(28 89% 52%), hsl(32 85% 65%));
+    --gradient-maroon: linear-gradient(135deg, hsl(350 65% 35%), hsl(350 55% 45%));
+    --gradient-premium: linear-gradient(135deg, hsl(350 65% 35%), hsl(28 89% 52%), hsl(43 74% 49%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(20 25% 15% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(20 25% 15% / 0.12);
+    --shadow-hover: 0 12px 40px -10px hsl(20 25% 15% / 0.18);
+    --shadow-gold: 0 8px 30px -8px hsl(43 74% 49% / 0.25);
+
+    --sidebar-background: 40 33% 97%;
+    --sidebar-foreground: 20 25% 15%;
+    --sidebar-primary: 28 89% 52%;
+    --sidebar-primary-foreground: 40 30% 99%;
+    --sidebar-accent: 35 25% 92%;
+    --sidebar-accent-foreground: 20 25% 15%;
+    --sidebar-border: 35 20% 88%;
+    --sidebar-ring: 28 89% 52%;
+  }
+
+  .dark {
+    --background: 20 25% 8%;
+    --foreground: 40 30% 95%;
+
+    --card: 20 22% 12%;
+    --card-foreground: 40 30% 95%;
+
+    --popover: 20 22% 12%;
+    --popover-foreground: 40 30% 95%;
+
+    --primary: 28 89% 55%;
+    --primary-foreground: 20 25% 8%;
+
+    --secondary: 350 55% 45%;
+    --secondary-foreground: 40 30% 95%;
+
+    --muted: 20 18% 18%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 43 74% 55%;
+    --accent-foreground: 20 25% 8%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 40 30% 95%;
+
+    --border: 20 18% 22%;
+    --input: 20 18% 22%;
+    --ring: 28 89% 55%;
+
+    --sidebar-background: 20 25% 8%;
+    --sidebar-foreground: 40 30% 95%;
+    --sidebar-primary: 28 89% 55%;
+    --sidebar-primary-foreground: 20 25% 8%;
+    --sidebar-accent: 20 18% 18%;
+    --sidebar-accent-foreground: 40 30% 95%;
+    --sidebar-border: 20 18% 22%;
+    --sidebar-ring: 28 89% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  /* Gold Divider */
+  .gold-divider {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+  }
+
+  /* Premium Card */
+  .premium-card {
+    @apply bg-card rounded-xl border border-border/50;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+  }
+
+  .premium-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Shimmer Animation */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--gold) / 0.15) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Glow effect */
+  .glow-saffron {
+    box-shadow: 0 0 40px hsl(var(--saffron) / 0.3);
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 40px hsl(var(--gold) / 0.3);
+  }
+
+  /* Mandala pattern overlay */
+  .mandala-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L35 25 L55 30 L35 35 L30 55 L25 35 L5 30 L25 25 Z' fill='none' stroke='%23D4A94C' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+  }
+
+  /* Premium Button Styles */
+  .btn-premium {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-medium rounded-lg transition-all duration-300;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .btn-premium:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-1px);
+  }
+
+  .btn-premium-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-medium rounded-lg transition-all duration-300;
+    @apply border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-medium rounded-lg transition-all duration-300;
+    background: var(--gradient-gold);
+    @apply text-foreground;
+    box-shadow: var(--shadow-gold);
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 35px -8px hsl(var(--gold) / 0.35);
+  }
+
+  /* Badge styles */
+  .badge-saffron {
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full;
+    @apply bg-primary/10 text-primary;
+  }
+
+  .badge-gold {
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full;
+    background: var(--gradient-gold);
+    @apply text-foreground;
+  }
+
+  /* Focus states */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-premium {
+    background: var(--gradient-premium);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .bg-gradient-saffron {
+    background: var(--gradient-saffron);
+  }
+
+  .bg-gradient-maroon {
+    background: var(--gradient-maroon);
+  }
+
+  .border-gradient-gold {
+    border-image: var(--gradient-gold) 1;
+  }
+}
